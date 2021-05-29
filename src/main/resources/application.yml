@@ -2,3 +2,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none # dont 't need to auto generate the tables for hibernate
+    show-sql: true
+    # Configurations SQL Lite within persistence-sqlite yml file possible ??
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+
+server:
+  port: 9090

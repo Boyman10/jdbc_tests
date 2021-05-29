@@ -22,6 +22,7 @@ https://github.com/xerial/sqlite-jdbc
 
 Directly load the DB from the code using the proper library which includes the server.
 
+You may use SQLiteBrowser in order to get an interface to access the db.
 
 # Hibernate
 
