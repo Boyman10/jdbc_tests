@@ -1,0 +1,13 @@
+<hibernate-mapping package="org.sample.domain.entities">
+
+    <class name="Person" table="person">
+        <id name="id" column="id" access="field">
+            <generator class="increment"/>
+        </id>
+        <property name="name" access="field"/>
+        <property name="address" access="field"/>
+        <property name="email" access="field"/>
+        <property name="phone" access="field"/>
+    </class>
+
+</hibernate-mapping>

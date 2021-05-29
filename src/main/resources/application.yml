@@ -1,0 +1,4 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none # dont 't need to auto generate the tables for hibernate
