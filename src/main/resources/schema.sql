@@ -1,10 +1,20 @@
 DROP TABLE IF EXISTS country;
+DROP TABLE IF EXISTS city;
 DROP TABLE IF EXISTS app_user;
+DROP TABLE IF EXISTS app_company;
 
 CREATE TABLE country
 (
     id   integer      NOT NULL auto_increment,
     name VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE city
+(
+    id         integer      NOT NULL auto_increment,
+    name       VARCHAR(128) NOT NULL,
+    country_id integer      NOT NULL REFERENCES country (id),
     PRIMARY KEY (id)
 );
 
