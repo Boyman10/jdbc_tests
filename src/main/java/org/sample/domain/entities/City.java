@@ -1,5 +1,7 @@
 package org.sample.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -10,6 +12,7 @@ import javax.validation.constraints.NotNull;
                 @NamedAttributeNode("country"),
         }
 )
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class City {
 
@@ -20,7 +23,7 @@ public class City {
     @NotNull
     public String name;
 
-    @ManyToOne(fetch = FetchType.EAGER) // this is the default fetch type
+    @ManyToOne(fetch = FetchType.LAZY) // this is the default fetch type
     @JoinColumn(name = "country_id", nullable = false)
     public Country country;
 

@@ -21,9 +21,14 @@ public class CityController {
     }
 
     @GetMapping("/cities")
-    public List<City> findAll() {
-        return repository.findAll();
+    public List<City> listAll(@RequestParam(defaultValue = "false", name = "show_country") boolean showCountry) {
+        if (showCountry) {
+            return repository.findAll();
+        } else {
+            return repository.findAllByNameNotNull();
+        }
     }
+
 
     @PostMapping("/cities")
     public City create(@RequestBody @Valid City City) {
