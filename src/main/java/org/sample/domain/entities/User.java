@@ -1,21 +1,17 @@
 package org.sample.domain.entities;
 
-import org.springframework.lang.NonNull;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "app_user")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    @NonNull
+    @NotBlank(message = "FirstName is mandatory")
     public String firstName;
-    @NonNull
+    @NotBlank(message = "LastName is mandatory")
     public String lastName;
 }

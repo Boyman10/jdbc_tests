@@ -16,3 +16,6 @@ CREATE TABLE app_user
     PRIMARY KEY (id)
 );
 
+ALTER TABLE app_user
+    ADD UNIQUE (first_name, last_name);
+
