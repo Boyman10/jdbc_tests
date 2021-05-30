@@ -19,3 +19,11 @@ CREATE TABLE app_user
 ALTER TABLE app_user
     ADD UNIQUE (first_name, last_name);
 
+CREATE TABLE app_company
+(
+    id             INTEGER      NOT NULL auto_increment,
+    name           VARCHAR(150) NOT NULL UNIQUE,
+    identification VARCHAR(50)  NOT NULL UNIQUE,
+    user_id        INTEGER      NOT NULL REFERENCES app_user (id),
+    PRIMARY KEY (id)
+);
