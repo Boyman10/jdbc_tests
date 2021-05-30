@@ -18,7 +18,7 @@ public class Company {
     @NotBlank(message = "Identification number is mandatory")
     public String identification;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     public User user;
 }
