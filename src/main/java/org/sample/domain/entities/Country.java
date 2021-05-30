@@ -1,16 +1,18 @@
 package org.sample.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"}, ignoreUnknown = true)
+@NamedEntityGraph(name = "Country.cities",
+        attributeNodes = @NamedAttributeNode("cities")
+)
 @Entity
 public class Country {
 
@@ -21,5 +23,7 @@ public class Country {
     @NotNull
     public String name;
 
-
+    @OneToMany(mappedBy = "city")
+    @JsonIgnore
+    public Set<City> cities;
 }
