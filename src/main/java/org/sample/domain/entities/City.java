@@ -3,6 +3,13 @@ package org.sample.domain.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@NamedEntityGraph(
+        name = "city-entity-graph",
+        attributeNodes = {
+                @NamedAttributeNode("name"),
+                @NamedAttributeNode("country"),
+        }
+)
 @Entity
 public class City {
 
@@ -13,7 +20,7 @@ public class City {
     @NotNull
     public String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER) // this is the default fetch type
     @JoinColumn(name = "country_id", nullable = false)
     public Country country;
 
