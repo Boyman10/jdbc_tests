@@ -10,8 +10,11 @@ import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"}, ignoreUnknown = true)
-@NamedEntityGraph(name = "Country.cities",
-        attributeNodes = @NamedAttributeNode("cities")
+@NamedEntityGraph(name = "country_entity_graph",
+        attributeNodes = {
+                @NamedAttributeNode("name"),
+                @NamedAttributeNode("cities")
+        }
 )
 @Entity
 public class Country {
@@ -23,7 +26,7 @@ public class Country {
     @NotNull
     public String name;
 
-    @OneToMany(mappedBy = "city")
+    @OneToMany(mappedBy = "country")
     @JsonIgnore
     public Set<City> cities;
 }

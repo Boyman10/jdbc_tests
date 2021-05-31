@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
-    @EntityGraph(attributePaths = {"Country.cities"})
+    @EntityGraph(attributePaths = {"country_entity_graph"})
     @Override
     List<Country> findAll();
 }

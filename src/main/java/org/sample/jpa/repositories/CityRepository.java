@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CityRepository extends JpaRepository<City, Long> {
 
-    @EntityGraph(value = "city-entity-graph")
+    @EntityGraph(value = "city_entity_graph")
     @Override
     List<City> findAll();
 

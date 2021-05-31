@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @NamedEntityGraph(
-        name = "City.country",
+        name = "city_entity_graph",
         attributeNodes = {
                 @NamedAttributeNode("name"),
                 @NamedAttributeNode("country"),
