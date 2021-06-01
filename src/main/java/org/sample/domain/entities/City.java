@@ -23,7 +23,7 @@ public class City {
     @NotNull
     public String name;
 
-    @ManyToOne(fetch = FetchType.LAZY) // this is the default fetch type
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false)
     public Country country;
 

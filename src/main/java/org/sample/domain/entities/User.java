@@ -23,4 +23,11 @@ public class User {
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     public Set<Company> companies;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "user_book",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
+    public Set<Book> books;
 }

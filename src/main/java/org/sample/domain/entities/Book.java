@@ -1,10 +1,8 @@
 package org.sample.domain.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -16,5 +14,8 @@ public class Book {
     @NotBlank
     public String name;
 
+    // Need the cascade type so we can also create a bunch of users - however this is business code smell - it should be removed (sake of the example in bidirectional)
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST)
+    public Set<User> users;
 
 }

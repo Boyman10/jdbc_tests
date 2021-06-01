@@ -24,6 +24,14 @@ Directly load the DB from the code using the proper library which includes the s
 
 You may use SQLiteBrowser in order to get an interface to access the db.
 
+# H2 db
+
+The console is enabled in the application.yml - you may access the db using the following url :
+
+http://localhost:9090/h2
+
+Check the settings for the proper port and uri.
+
 # Hibernate
 
 We use both Annotation and Config files (hbm.xml) to map our classes to tables.
