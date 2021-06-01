@@ -14,8 +14,7 @@ public class Book {
     @NotBlank
     public String name;
 
-    // Need the cascade type so we can also create a bunch of users - however this is business code smell - it should be removed (sake of the example in bidirectional)
-    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "books")
     public Set<User> users;
 
 }
